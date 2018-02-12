@@ -47,6 +47,10 @@
             <add-to-group group-id="ToolsMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl C" second-keystroke="ctrl SEMICOLON"/>
         </action>
+        <action id="PopupAction" class="com.yuchesc.intellij.PopupAction" text="PopupAction">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl C" second-keystroke="shift P"/>
+        </action>
     </actions>
 
 </idea-plugin>

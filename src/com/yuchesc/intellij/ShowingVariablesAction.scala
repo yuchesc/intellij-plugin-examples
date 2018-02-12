@@ -1,16 +1,19 @@
 package com.yuchesc.intellij
 
 import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent, CommonDataKeys}
+import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.openapi.ui.Messages
 
 class ShowingVariablesAction extends AnAction {
+  val logger = Logger.getInstance(classOf[ShowingVariablesAction])
 
   // enable this action while editing text
   override def update(e: AnActionEvent): Unit =
     e.getPresentation.setEnabled(e.getData(CommonDataKeys.EDITOR) != null)
 
   override def actionPerformed(e: AnActionEvent) {
+    logger.info("aiueo")
     // Get selected text
     val editor = e.getData(CommonDataKeys.EDITOR)
     val file = e.getData(CommonDataKeys.VIRTUAL_FILE)
