@@ -1,0 +1,52 @@
+<idea-plugin>
+    <id>com.yuchesc.intellij</id>
+    <name>Sample plugins</name>
+    <version>1.0</version>
+    <vendor email="yuchesc@gmail.com" url="http://yuchesc.com">Yuchesc</vendor>
+
+    <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceInterface="com.yuchesc.intellij.SamplePersistent" serviceImplementation="com.yuchesc.intellij.SamplePersistent"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="HelloAction" class="com.yuchesc.intellij.ToolMenuHelloAction" text="Hello">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl F12"/>
+        </action>
+        <group id="MainMenuHello" text="_Sample Menu" description="Sample menu">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="MainMenuHelloAction" class="com.yuchesc.intellij.MainMenuHelloAction" text="MainMenuHello"/>
+            <action id="MainMenuHelloAction2" class="com.yuchesc.intellij.MainMenuHelloAction" text="MainMenuHello2"/>
+        </group>
+        <action id="SelectedTextAction" class="com.yuchesc.intellij.SelectedTextAction" text="WordLookup">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl C" second-keystroke="ctrl L"/>
+        </action>
+        <action id="ShowingVariablesAction" class="com.yuchesc.intellij.ShowingVariablesAction" text="ShowingVariables">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl C" second-keystroke="ctrl SEMICOLON"/>
+        </action>
+    </actions>
+
+</idea-plugin>
