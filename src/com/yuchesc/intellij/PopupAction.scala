@@ -1,29 +1,32 @@
 package com.yuchesc.intellij
 
-import java.awt.{BorderLayout, Dimension}
+import java.awt.{Dimension, FlowLayout}
 import javax.swing.{JLabel, JPanel}
 
 import com.intellij.openapi.actionSystem.{AnAction, AnActionEvent, CommonDataKeys}
 import com.intellij.openapi.ui.popup.{JBPopup, JBPopupFactory}
-import com.intellij.openapi.ui.popup.JBPopup
-import com.intellij.openapi.ui.popup.JBPopupFactory
 
 class PopupAction extends AnAction {
   def createPopup(): JBPopup = {
-    val panel = new JPanel(new BorderLayout())
-    val component = new JLabel()
-    component.setText("Hello World!")
-    JBPopupFactory.getInstance.createComponentPopupBuilder(panel, component)
-      .setTitle("Recent Projects")
-      .setFocusable(true)
+    val panel = new JPanel(new FlowLayout())
+    val label = new JLabel("Hello World!!")
+    panel.add(label)
+    JBPopupFactory.getInstance.createComponentPopupBuilder(panel, null)
+      .setTitle("Popup Title")
+      .setFocusable(false)
       .setRequestFocus(false)
       .setMayBeParent(true)
       .setMovable(true)
       .setMinSize(new Dimension(200, 200))
+      .setCancelKeyEnabled(true)
       .createPopup
   }
 
   var currentPopup: Option[JBPopup] = None
+
+  // enable this action while editing text
+  override def update(e: AnActionEvent): Unit =
+    e.getPresentation.setEnabled(e.getData(CommonDataKeys.EDITOR) != null)
 
   override def actionPerformed(e: AnActionEvent): Unit = {
     val editor = e.getData(CommonDataKeys.EDITOR)
