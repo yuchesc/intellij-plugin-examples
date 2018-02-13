@@ -15,9 +15,11 @@ class PopupAction extends AnAction {
       .setTitle("Popup Title")
       .setFocusable(false)
       .setRequestFocus(false)
-      .setMayBeParent(true)
+      .setMayBeParent(false)
       .setMovable(true)
       .setMinSize(new Dimension(200, 200))
+      .setCancelOnClickOutside(true)
+      .setCancelOnOtherWindowOpen(false)
       .setCancelKeyEnabled(true)
       .createPopup
   }
