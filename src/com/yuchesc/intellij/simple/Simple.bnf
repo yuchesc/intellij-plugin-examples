@@ -1,0 +1,17 @@
+{
+parserClass="com.yuchesc.intellij.simple.SimpleParser"
+extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+psiClassPrefix="Simple"
+psiImplClassSuffix="Impl"
+psiPackage="com.yuchesc.intellij.simple.psi"
+psiImplPackage="com.yuchesc.intellij.simple.psi.impl"
+
+elementTypeHolderClass="com.yuchesc.intellij.simple.psi.SimpleTypes"
+elementTypeClass="com.yuchesc.intellij.simple.psi.SimpleElementType"
+tokenTypeClass="com.yuchesc.intellij.simple.psi.SimpleTokenType"
+}
+
+simpleFile ::= item_*
+private item_ ::= (property|COMMENT|CRLF)
+property ::= (KEY? SEPARATOR VALUE?) | KEY
