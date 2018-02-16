@@ -17,7 +17,6 @@
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <idea-version since-build="173.0"/>
-
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <!-- uncomment to enable plugin in all products
@@ -27,6 +26,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <projectService serviceInterface="com.yuchesc.intellij.SamplePersistent" serviceImplementation="com.yuchesc.intellij.SamplePersistent"/>
         <fileTypeFactory implementation="com.yuchesc.intellij.simple.SimpleFileTypeFactory" />
+        <lang.parserDefinition language="Simple" implementationClass="com.yuchesc.intellij.simple.SimpleParserDefinition"/>
     </extensions>
 
     <actions>
