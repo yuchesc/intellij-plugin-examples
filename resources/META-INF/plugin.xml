@@ -27,6 +27,8 @@
         <projectService serviceInterface="com.yuchesc.intellij.SamplePersistent" serviceImplementation="com.yuchesc.intellij.SamplePersistent"/>
         <fileTypeFactory implementation="com.yuchesc.intellij.simple.SimpleFileTypeFactory" />
         <lang.parserDefinition language="Simple" implementationClass="com.yuchesc.intellij.simple.SimpleParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="Simple" implementationClass="com.yuchesc.intellij.simple.SimpleSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="com.yuchesc.intellij.simple.SimpleColorSettingsPage"/>
     </extensions>
 
     <actions>
