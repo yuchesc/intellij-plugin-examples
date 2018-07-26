@@ -1,7 +1,5 @@
 # Intelli-J Plug-in Development examples
 
-[toc]
-
 ## Logging
 
 Choose showing log level on idea.log tab. It may be `warnings` by default.
